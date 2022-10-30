@@ -22,11 +22,11 @@
 
 4. WMTS、WMS、WFS是什么
 
-   Web地图服务（WMS）利用具有地理空间位置信息的数据制作地图
+   Web地图服务（WMS）利用具有地理空间位置信息的数据制作地图，GetCapabilities返回服务级[元数据](https://so.csdn.net/so/search?q=元数据&spm=1001.2101.3001.7020)，它是对服务信息内容和要求参数的一种描述； GetMap返回一个地图影像，其地理空间参考和大小参数是明确定义了的；GetFeatureInfo（可选）返回显示在地图上的某些特殊要素的信息
 
    WMTS，切片地图Web服务（OpenGIS Web Map Tile Service），提供了一种采用预定义图块方法发布数字地图服务的标准化解决方案
 
-   Web矢量服务（WFS）返回的是矢量级的GML编码，并提供对矢量的增加、修改、删除等事务操作，是对Web地图服务的进一步深入
+   Web矢量服务（WFS）返回的是矢量级的GML编码，并提供对矢量的增加、修改、删除等事务操作
 
 5. 矢量和栅格的区别
 
@@ -57,7 +57,7 @@
 
    2、切片分辨率（比例尺）
 
-   切片分辨率和比例尺是一一对应的。比例尺指的是我的图上一个单位代表实际多少距离，而分辨率代表屏幕上一个像素代表实际多少距离，因此，当定了一个之后，对应的另一个也确定了。
+    切片分辨率和比例尺是一一对应的。比例尺指的是我的图上一个单位代表实际多少距离，而分辨率代表屏幕上一个像素代表实际多少距离，因此，当定了一个之后，对应的另一个也确定了。
 
    切片分辨率（比例尺）影响的是在该分辨率（比例尺）下，我的一个256*256的图片的实际坐标是多少。
 
@@ -79,21 +79,40 @@
 
     ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191105161007502.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjYxODE5MQ==,size_16,color_FFFFFF,t_70)
 
-11. 1
+11. surpermap三维客户端 
 
-12. 1
+    cesium加载影响  CesiumTerrainProvider地形 SuperMapImageryProvider影像服务
+
+    场景颜色设置 colorCorrection 泛光效果开关 bloomEffect  绘制线DrawHandler
+
+12. 加载模型并改变位置
+
+     model = scene.primitives.add(
+        Cesium.Model.fromGltf({
+
+    空间位置的移动---将经纬度和高度转换为笛卡尔坐标 Cesium.Cartesian3.fromDegrees
+
+    构建模型矩阵---通过姿态变化、位置变化构建模型矩阵 Cesium.Transforms.headingPitchRollToFixedFrame
+
+13. 苏州园区 mapbox加geoserve的wms服务
+
+14. 天地图坐标系：CGCS2000
+
+15. s
+
+    
 
 二、Web部分
 
 1. axios和ajax的区别
 
-   　Ajax是对原生XHR的封装,由客户端请求ajax引擎，再由ajax引擎请求服务器，服务器作出一系列响应之后返回给ajax引擎，由ajax引擎决定将这个结果写入到客户端的什么位置。实现页面无刷新更新数据。
+    Ajax是对原生XHR的封装,由客户端请求ajax引擎，再由ajax引擎请求服务器，服务器作出一系列响应之后返回给ajax引擎，由ajax引擎决定将这个结果写入到客户端的什么位置。实现页面无刷新更新数据。
 
       Axios 是一个基于 Promise 的 HTTP 库，可以用在浏览器和 node.js 中
 
 2. 如何用flex实现居中
 
-    justify-content: center;   */\* 子元素水平居中 \*/*        
+   justify-content: center;   */\* 子元素水平居中 \*/*        
 
    align-items: center;       */\* 子元素垂直居中 \*/*
 
@@ -103,7 +122,7 @@
 
 4. vue中的跨域问题如何解决
 
-   　**在vue中使用proxy进行跨域的原理是：将域名发送给本地的服务器（启动vue项目的服务,loclahost:8080），再由本地的服务器去请求真正的服务器。**
+   **在vue中使用proxy进行跨域的原理是：将域名发送给本地的服务器（启动vue项目的服务,loclahost:8080），再由本地的服务器去请求真正的服务器。**
 
    在vue.config.js中设置如下代码片段
 
@@ -193,11 +212,13 @@
 
 11. webpack、babel是干什么的
 
-    webpack把项目当做一个整体, 通过设定的入口文件, 从该文件开始找到项目的所有依赖文件, 使用loaders处理它们, 最终打包成一个或多个js文件.
+     webpack把项目当做一个整体, 通过设定的入口文件, 从该文件开始找到项目的所有依赖文件, 使用loaders处理它们, 最终打包成一个或多个js文件.
 
-    babel是将较新版本的js, 转化成大多数浏览器都可识别的老版本的语法的工具.
+     babel是将较新版本的js, 转化成大多数浏览器都可识别的老版本的语法的工具.
 
-12. d1
+12. es6新特性
+
+     
 
 13. 1
 
